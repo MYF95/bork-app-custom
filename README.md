@@ -27,3 +27,7 @@ $ rails server
 Feels goodman sun with face clap
 
 Heroku deployment at: bork-app.herokuapp.com/
+
+Things to do:
+    Check why I have to rerun tests to make them pass after changing a file, its like the created user in user.yml has
+    reload.
