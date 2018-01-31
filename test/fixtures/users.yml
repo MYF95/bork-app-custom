@@ -4,3 +4,26 @@ ponsan:
   name: Ponsan bork
   email: ponsan@bork.com
   password_digest: <%= User.digest('chicken') %>
+  admin: true
+
+tsukki:
+  name: Tsukki bork
+  email: tsukki@bork.com
+  password_digest: <%= User.digest('chicken') %>
+
+pooky:
+  name: Pooky bork
+  email: pooky@bork.com
+  password_digest: <%= User.digest('chicken') %>
+
+mikota:
+  name: mikota bork
+  email: mikota@bork.com
+  password_digest: <%= User.digest('chicken') %>
+
+<% 30.times do |n| %>
+user_<%= n %>:
+  name: <%= "User #{n}" %>
+  email: <%= "user-#{n}@bork.com" %>
+  password_digest: <%= User.digest('chicken') %>
+<% end %>
