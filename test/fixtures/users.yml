@@ -5,16 +5,22 @@ ponsan:
   email: ponsan@bork.com
   password_digest: <%= User.digest('chicken') %>
   admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 tsukki:
   name: Tsukki bork
   email: tsukki@bork.com
   password_digest: <%= User.digest('chicken') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 pooky:
   name: Pooky bork
   email: pooky@bork.com
   password_digest: <%= User.digest('chicken') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 mikota:
   name: mikota bork
@@ -26,4 +32,6 @@ user_<%= n %>:
   name: <%= "User #{n}" %>
   email: <%= "user-#{n}@bork.com" %>
   password_digest: <%= User.digest('chicken') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 <% end %>

@@ -1,0 +1,8 @@
+<h1>Bork App</h1>
+<p>Bork <%= @user.name %>,</p>
+
+<p>
+  Welcome to the Bork App! Click on the link below to activate your account:
+</p>
+
+<%= link_to "Borktivate", edit_account_activation_url(@user.activation_token, email: @user.email) %>

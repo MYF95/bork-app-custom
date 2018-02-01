@@ -3,6 +3,7 @@ require 'test_helper'
 class UsersLoginTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:ponsan)
+    @non_activated = users(:mikota)
   end
 
   test "login with invalid information" do
@@ -48,6 +49,13 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     # Log in again and verify that the cookie is deleted
     log_in_as(@user, remember_me: '0')
     assert_empty cookies['remember_token']
+  end
+
+  test "login without activating the account" do
+    get login_path
+    post login_path, params: { session: { email: @non_activated.email, password: 'chicken'}}
+    assert_redirected_to root_path
+    assert_not flash.empty?
   end
 
 end

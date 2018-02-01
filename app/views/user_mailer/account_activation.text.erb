@@ -1,0 +1,4 @@
+Bork <%= @user.name %>,
+Welcome to the Bork App! Click on the link below to get ready to rumble:
+
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
