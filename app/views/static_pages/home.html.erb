@@ -1,14 +1,19 @@
-<div class="center jumbotron">
-  <h1>Welcome to the Bork App</h1>
-
-  <h2>
-    This is the homepage for the bork app, where all your borking will be satisfied.
-    This page is featured ponsan, tsukki and pooky.
-  </h2>
-
-  <%= link_to "Bork up now!", signup_path, class: "btn btn-lg btn-primary" %>
-</div>
-
-<%= link_to image_tag("logo2.png", alt: "doge logo") %>
-
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="micropost_form">
+        <%= render 'shared/micropost_form' %>
+      </section>
+    </aside>
+    <div class="col-md-8">
+      <h3>Borkopost Feed</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+<% else %>
+  <%= render 'not_logged' %>
+<% end %>
 
