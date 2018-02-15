@@ -44,9 +44,9 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     other_user = users(:pooky)
     log_in_as(other_user)
     get root_path
-    assert_select "span", "0 microposts", response.body
+    assert_select "span", "1 micropost", response.body
     other_user.microposts.create!(content: "A borkopost")
     get root_path
-    assert_select "span", "1 micropost", response.body
+    assert_select "span", "2 microposts", response.body
   end
 end

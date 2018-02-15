@@ -94,4 +94,25 @@ class UserTest < ActiveSupport::TestCase
     ponsan.unfollow(tsukki)
     assert_not ponsan.following?(tsukki)
   end
+
+  test "feed should have right posts" do
+    ponsan = users(:ponsan)
+    tsukki = users(:tsukki)
+    pooky = users(:pooky)
+
+    # Posts from followed user
+    pooky.microposts.each do |post_following|
+      assert ponsan.feed.include?(post_following)
+    end
+
+    # Posts from self
+    ponsan.microposts.each do |post_self|
+      assert ponsan.feed.include?(post_self)
+    end
+
+    # Posts from unfollowed user
+    tsukki.microposts.each do |post_unfollowed|
+      assert_not ponsan.feed.include?(post_unfollowed)
+    end
+  end
 end

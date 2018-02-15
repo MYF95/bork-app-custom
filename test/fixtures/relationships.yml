@@ -1,3 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 #empty
+
+one:
+  follower: ponsan
+  followed: pooky
+
+two:
+  follower: ponsan
+  followed: mikota
+
+three:
+  follower: pooky
+  followed: ponsan
+
+four:
+  follower: tsukki
+  followed: ponsan
