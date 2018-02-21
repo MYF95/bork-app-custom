@@ -78,16 +78,16 @@ Rails.application.configure do
       :enable_starttls_auto => true
   }
 
-
-  Paperclip::Attachment.default_options[:s3_credentials] = {
-      :bucket => ENV['S3_BUCKET'],
-      :access_key_id => ENV['S3_ACCESS_KEY'],
-      :secret_access_key => ENV['S3_SECRET_KEY'],
-      :region => 'eu-west-2'
+  config.paperclip_defaults = {
+      storage: :s3,
+      s3_credentials: {
+          bucket: ENV['S3_BUCKET_NAME'],
+          access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+          secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
+          s3_region: ENV['S3_REGION'],
+          s3_host_name: ENV['S3_HOST_NAME']
+      }
   }
-  Paperclip::Attachment.default_options[:s3_region] = 'eu-west-2'
-  Paperclip::Attachment.default_options[:s3_host_name] = 'borkapp3.s3.amazonaws.com'
-  Paperclip.options[:command_path] = 'usr/local/bin'
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
