@@ -86,7 +86,7 @@ Rails.application.configure do
       :region => 'eu-west-2'
   }
   Paperclip::Attachment.default_options[:s3_region] = 'eu-west-2'
-  Paperclip::Attachment.default_options[:s3_host_name] = 's3.amazonaws.com'
+  Paperclip::Attachment.default_options[:s3_host_name] = 'borkapp3.s3.amazonaws.com'
   Paperclip.options[:command_path] = 'usr/local/bin'
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
