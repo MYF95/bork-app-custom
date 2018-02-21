@@ -78,6 +78,15 @@ Rails.application.configure do
       :enable_starttls_auto => true
   }
 
+  config.paperclip_defaults = {
+      storage: :s3,
+      s3_credentials: {
+          bucket: ENV.fetch('S3_BUCKET'),
+          access_key_id: ENV.fetch('S3_ACCESS_KEY'),
+          secret_access_key: ENV.fetch('S3_SECRET_KEY'),
+      }
+  }
+
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
