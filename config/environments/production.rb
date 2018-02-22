@@ -88,6 +88,8 @@ Rails.application.configure do
           s3_host_name: ENV['S3_HOST_NAME']
       }
   }
+  Paperclip.options[:command_path] = 'usr/local/bin'
+
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
