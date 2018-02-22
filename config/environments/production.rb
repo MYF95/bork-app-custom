@@ -89,7 +89,7 @@ Rails.application.configure do
       }
   }
   Paperclip::Attachment.default_options[:s3_region] = 'eu-west-2'
-  Paperclip::Attachment.default_options[:s3_host_name] = 's3-eu-west-2.amazonaws.com/borkapp3'
+  Paperclip::Attachment.default_options[:s3_host_name] = 'borkapp3.s3.amazonaws.com'
   Paperclip.options[:command_path] = 'usr/local/bin'
 
 
