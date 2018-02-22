@@ -78,16 +78,15 @@ Rails.application.configure do
       :enable_starttls_auto => true
   }
 
-  Paperclip::Attachment.default_options = {
-      storage: :s3,
-      s3_credentials: {
+  Paperclip::Attachment.default_options[:s3_credentials] = {
           bucket: ENV['S3_BUCKET_NAME'],
           access_key_id: ENV['AWS_ACCESS_KEY_ID'],
           secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
           s3_region: ENV['S3_REGION'],
           s3_host_name: ENV['S3_HOST_NAME']
       }
-  }
+  Paperclip::Attachment.default_options[:storage] = :s3
+  Paperclip::Attachment.default_options[:s3_host_name] = 'borkapp3.s3.amazonaws.com'
   Paperclip.options[:command_path] = 'usr/local/bin'
 
 
