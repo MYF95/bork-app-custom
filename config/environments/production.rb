@@ -86,6 +86,7 @@ Rails.application.configure do
           s3_host_name: ENV['S3_HOST_NAME']
       }
   Paperclip::Attachment.default_options[:storage] = :s3
+  Paperclip::Attachment.default_options[:default_url] = ENV['S3_DEFAULT_URL']
   Paperclip.options[:command_path] = 'usr/local/bin'
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to

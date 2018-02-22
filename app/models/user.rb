@@ -5,7 +5,7 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   attr_accessor :remember_token, :activation_token, :reset_token
-  has_attached_file :avatar, :styles => { :thumb => "80x80#", :tiny => "50x50#" }, :default_url => "/assets/:style/default.jpg"
+  has_attached_file :avatar, :styles => { :thumb => "80x80#", :tiny => "50x50#" } #, :default_url => "/assets/:style/default.jpg"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   before_save { email.downcase! }
