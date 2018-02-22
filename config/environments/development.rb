@@ -55,5 +55,4 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  Paperclip::Attachment.default_options[:default_url] = "/assets/:style/default.jpg"
 end
